@@ -41,17 +41,15 @@ security:
             #http_basic:
             #    realm: "Secured Demo Area"
         public:
-              pattern:  ^/.* 
+              pattern:  ^/ 
               fos_facebook:
                   login_path: /login
                   check_path: /login_check
                   default_target_path: /
                   provider: my_fos_facebook_provider
-              anonymous: true
+              anonymous: ~ 
 
     access_control:
-        - { path: ^/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/login_check, role: IS_AUTHENTICATED_ANONYMOUSLY }
         #- { path: ^/_internal, roles: IS_AUTHENTICATED_ANONYMOUSLY, ip: 127.0.0.1 }
         #- { path: ^/secured/.*, role: [IS_AUTHENTICATED_FULLY] } # This is the route secured with fos_facebook
-        - { path: ^/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }

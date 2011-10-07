@@ -7,7 +7,7 @@
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-      {{ facebook_initialize({'xfbml': true, 'status': true}) }}
+      {{ facebook_initialize({'xfbml': true, 'status': false, 'async':false}) }}
         <div id="symfony-wrapper">
             <div id="symfony-header">
                 <a href="{{ path('_welcome') }}">

@@ -9,9 +9,11 @@ window.fbAsyncInit = function() {
 {% endif %}
   FB.init({{ {'appId':appId, 'xfbml':xfbml, 'oauth':oauth, 'status': status, 'cookie':cookie, 'logging':logging }|json_encode }});
 
-  FB.Event.subscribe('auth.login', function(response) {
-       window.location = "{{ path('_login_check') }}";
-
+  function go_login(){
+          window.location = "{{ path('_login_check') }}";
+      }
+  FB.Event.subscribe('auth.login', function(response) {                
+      setTimeout("go_login()",500);
   });
 
 {% if async %}
