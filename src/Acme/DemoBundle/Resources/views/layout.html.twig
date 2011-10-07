@@ -7,7 +7,7 @@
         <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-      {{ facebook_initialize({'xfbml': true, 'status': false, 'async':false}) }}
+      {{ facebook_initialize({'xfbml': true, 'status': true, 'async':false}) }}
         <div id="symfony-wrapper">
             <div id="symfony-header">
                 <a href="{{ path('_welcome') }}">
@@ -18,7 +18,7 @@
                     <input name="q" id="symfony-search-field" type="search" placeholder="Search on Symfony website" class="medium_txt">
                     <input type="submit" class="symfony-button-grey" value="OK" />
                 </form>
-            {{ facebook_login_button({'autologoutlink': true}) }}
+                {{ facebook_login_button({'autologoutlink': true}) }}
             </div>
 
             {% if app.session.flash('notice') %}
