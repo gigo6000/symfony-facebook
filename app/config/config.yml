@@ -80,7 +80,9 @@ doctrine_mongodb:
     default_database: test_database
     document_managers:
         default:
-            auto_mapping: true
+#            auto_mapping: true
+            mappings:
+                AcmeDemoBundle: { type: annotation, dir: Document/ }
 services:
     my.facebook.user:
         class: Acme\DemoBundle\Security\User\Provider\FacebookProvider
